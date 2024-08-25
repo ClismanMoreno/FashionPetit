@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MyAvatar from '../Avatar/MyAvatar';
 import Modal from '../Modal/Modal';
 import Image from 'next/image';
+import { useCartStore } from '@/store/useCartStore';
 
 const Navbar: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,9 +38,12 @@ const Navbar: React.FC = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const { cart, addToCart, removeFromCart, clearCart, getTotal } =
+    useCartStore();
+
   return (
     <nav className="flex items-center p-4 bg-blue-600 text-white">
-      <div className="flex w-3/4">
+      <div className="flex w-1/2">
         <div className="w-1/4">
           <Image src={'/images/logo.png'} alt="logo" height={40} width={40} />
         </div>
@@ -52,9 +56,18 @@ const Navbar: React.FC = () => {
           </a>
         </div>
       </div>
+      <div className="w-1/2">
+        <button
+          onClick={() => {
+            console.log(cart);
+          }}
+        >
+          CARRO
+        </button>
+      </div>
       <div className="relative flex flex-col md:flex-row justify-center items-center gap-x-4 md:mr-4 w-1/4">
         <p className="font-serif font-semibold text-xs text-center pt-2 md:pt-0 md:text-base order-2 md:order-1">
-          ¡Bienvenido {userName}!
+          ¡Bienvenida {userName}!
         </p>
         <button
           onClick={toggleModal}

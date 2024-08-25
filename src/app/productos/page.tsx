@@ -1,7 +1,11 @@
-import React from 'react';
+import Vista from '@/components/Productos/Vista';
 
 const ProductosPage = () => {
-  return <div>Productos</div>;
+  return (
+    <section>
+      <Vista />
+    </section>
+  );
 };
 
 export default ProductosPage;

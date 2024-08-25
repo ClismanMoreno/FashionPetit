@@ -41,16 +41,17 @@ const Modal: React.FC<ModalProps> = ({
             <strong>Correo:</strong> {userEmail || 'No disponible'}
           </p>
           <p className="text-black text-xs md:text-sm">
-            <strong>Cintura:</strong> {userContornoCintura || 'No disponible'}
+            <strong>Cintura:</strong> {userContornoCintura || 'No disponible'}{' '}
+            cm
           </p>
           <p className="text-black text-xs md:text-sm">
-            <strong>Pierna:</strong> {userContornoPierna || 'No disponible'}
+            <strong>Pierna:</strong> {userContornoPierna || 'No disponible'} cm
           </p>
           <p className="text-black text-xs md:text-sm">
-            <strong>Cadera:</strong> {userContornoCadera || 'No disponible'}
+            <strong>Cadera:</strong> {userContornoCadera || 'No disponible'} cm
           </p>
           <p className="text-black text-xs md:text-sm">
-            <strong>Largo Tiro:</strong> {userLargoTiro || 'No disponible'}
+            <strong>Largo Tiro:</strong> {userLargoTiro || 'No disponible'} cm
           </p>
         </div>
         <button

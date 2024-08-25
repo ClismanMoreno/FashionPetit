@@ -60,6 +60,19 @@ const AuthPage = () => {
           {isRegistering ? 'Regístrate' : 'Inicia Sesión'}
         </h2>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
+        {!isRegistering ? (
+          <></>
+        ) : (
+          <>
+            <input
+              type="text"
+              placeholder="Nombre"
+              className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </>
+        )}
         <input
           type="email"
           placeholder="Correo electrónico"
@@ -80,38 +93,31 @@ const AuthPage = () => {
           <>
             <input
               type="text"
-              placeholder="Contorno cintura"
+              placeholder="Contorno de cintura (cm)"
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={contornoCintura}
               onChange={(e) => setContornoCintura(e.target.value)}
             />
             <input
               type="text"
-              placeholder="Contorno de cadera"
+              placeholder="Contorno de cadera (cm)"
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={contornoCadera}
               onChange={(e) => setContornoCadera(e.target.value)}
             />
             <input
               type="text"
-              placeholder="Contorno de pierna"
+              placeholder="Largo de pierna (cm)"
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={contornoPierna}
               onChange={(e) => setContornoPierna(e.target.value)}
             />
             <input
               type="text"
-              placeholder="Largo de tiro"
+              placeholder="Largo de tiro (cm)"
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={largoTiro}
               onChange={(e) => setLargoTiro(e.target.value)}
-            />
-            <input
-              type="text"
-              placeholder="Nombre"
-              className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
             />
           </>
         )}
