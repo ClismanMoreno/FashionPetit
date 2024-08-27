@@ -42,7 +42,7 @@ const ModalCart: React.FC<ModalProps> = ({
 
     setPriceTotal(total);
     setMessage(
-      `https://wa.me/51994936998?text=%C2%A1Hola!%0AMis%20productos%20son:%0A${listText}%20%20precio%20total:%20${total.toFixed(
+      `https://wa.me/51961751471?text=%C2%A1Hola!%0AMis%20productos%20son:%0A${listText}%20%20precio%20total:%20${total.toFixed(
         2
       )}`
     );
