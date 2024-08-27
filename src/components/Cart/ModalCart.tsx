@@ -70,7 +70,14 @@ const ModalCart: React.FC<ModalProps> = ({
             <h2 className="text-lg font-semibold text-pink-600 text-center mb-2">
               Productos
             </h2>
-            <i className="cursor-pointer border border-red-700 rounded-3xl w-10 h-10 flex justify-center items-center hover:transition-all hover:delay-100 hover:bg-red-300/40">
+            <i
+              className="cursor-pointer border border-red-700 rounded-3xl w-10 h-10 flex justify-center items-center hover:transition-all hover:delay-100 hover:bg-red-300/40"
+              onClick={() => {
+                clearCart();
+                notifyClear();
+                toggleModal();
+              }}
+            >
               <ClearCart />
             </i>
           </div>

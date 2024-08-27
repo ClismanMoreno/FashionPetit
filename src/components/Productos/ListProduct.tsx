@@ -64,9 +64,12 @@ const ListProduct: React.FC<ComponenteProps> = ({
               >
                 Añadir al carrito
               </button>
-              <button className="w-40 border-2 text-cyan-100 border-cyan-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-cyan-400 hover:text-white p-2">
+              <a
+                href={`/productos/${producto.nombre.replace(' ', '-')}`}
+                className="w-40 text-center border-2 text-cyan-100 border-cyan-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-cyan-400 hover:text-white p-2"
+              >
                 Ver Detalles
-              </button>
+              </a>
             </div>
           </div>
         </div>
