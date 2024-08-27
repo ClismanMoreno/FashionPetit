@@ -23,6 +23,8 @@ interface CartState {
   removeFromCart: (productId: number) => void;
   clearCart: () => void;
   getTotal: () => number;
+  incrementQuantity: (productId: number) => void;
+  decrementQuantity: (productId: number) => void;
 }
 
 export const useCartStore = create<CartState>()(
@@ -47,6 +49,34 @@ export const useCartStore = create<CartState>()(
               cart: [...state.cart, { ...product, quantity: 1 }],
             };
           }
+        }),
+      incrementQuantity: (productId) =>
+        set((state) => ({
+          cart: state.cart.map((item) =>
+            item.id === productId
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        })),
+      decrementQuantity: (productId) =>
+        set((state) => {
+          const product = state.cart.find((item) => item.id === productId);
+          if (product) {
+            if (product.quantity === 1) {
+              return {
+                cart: state.cart.filter((item) => item.id !== productId),
+              };
+            } else {
+              return {
+                cart: state.cart.map((item) =>
+                  item.id === productId
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+                ),
+              };
+            }
+          }
+          return state;
         }),
       removeFromCart: (productId) =>
         set((state) => ({

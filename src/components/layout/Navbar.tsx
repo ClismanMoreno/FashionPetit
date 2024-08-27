@@ -43,8 +43,7 @@ const Navbar: React.FC = () => {
     setIsModalOpen(!isModalOpen);
   };
 
-  const { cart, addToCart, removeFromCart, clearCart, getTotal } =
-    useCartStore();
+  const { cart } = useCartStore();
 
   const [isOpen, setIsOpen] = useState(false);
 

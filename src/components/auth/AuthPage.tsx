@@ -54,8 +54,8 @@ const AuthPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="w-full max-w-sm bg-white p-8 rounded-lg shadow-lg">
+    <div className="flex justify-center items-center h-screen ">
+      <div className="w-full max-w-sm bg-[#703e3e] p-8 rounded-lg shadow-lg">
         <h2 className="text-2xl font-semibold text-center mb-6">
           {isRegistering ? 'Regístrate' : 'Inicia Sesión'}
         </h2>
@@ -127,7 +127,7 @@ const AuthPage = () => {
         )}
 
         <button
-          className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600"
+          className="w-full bg-[#5d426a] text-white p-2 rounded-md hover:bg-[#322439]"
           onClick={handleSubmit}
         >
           {isRegistering ? 'Registrarse' : 'Iniciar Sesión'}
@@ -138,7 +138,7 @@ const AuthPage = () => {
               ? '¿Ya tienes una cuenta?'
               : '¿No tienes una cuenta?'}
             <button
-              className="text-blue-500 ml-2 hover:underline"
+              className="text-[#231828] ml-2 hover:underline"
               onClick={() => {
                 setIsRegistering(!isRegistering);
                 setError('');

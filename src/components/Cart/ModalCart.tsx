@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useCartStore } from '@/store/useCartStore';
+import Trash from '../assets/Trash';
+import { toast } from 'react-toastify';
+import ClearCart from '../assets/ClearCart';
 
 interface Producto {
   id: number;
@@ -49,17 +53,27 @@ const ModalCart: React.FC<ModalProps> = ({
     SetMontage(true);
   }, [productos]);
 
+  const { incrementQuantity, decrementQuantity, removeFromCart, clearCart } =
+    useCartStore();
+
+  const notify = () => toast.error('¡Producto eliminado del carrito!');
+  const notifyClear = () => toast.error('¡Productos eliminados!');
   return (
     <>
       <div
-        className={`fixed top-0 right-0 h-full w-64 transform transition-transform duration-300 overflow-y-scroll ${
+        className={`fixed top-0 right-0 h-full w-80 transform transition-transform duration-300 overflow-y-scroll ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         } bg-white shadow-lg z-50`}
       >
         <div className="p-2 flex flex-col space-y-4">
-          <h2 className="text-lg font-semibold text-pink-600 text-center mb-2">
-            Productos
-          </h2>
+          <div className="flex items-center justify-between mx-2">
+            <h2 className="text-lg font-semibold text-pink-600 text-center mb-2">
+              Productos
+            </h2>
+            <i className="cursor-pointer border border-red-700 rounded-3xl w-10 h-10 flex justify-center items-center hover:transition-all hover:delay-100 hover:bg-red-300/40">
+              <ClearCart />
+            </i>
+          </div>
           {montage &&
             productos?.map((producto: Producto) => (
               <div
@@ -75,13 +89,46 @@ const ModalCart: React.FC<ModalProps> = ({
                   />
                 </div>
                 <div className="flex flex-col">
-                  <h3 className="text-[#b06262] font-semibold">
-                    {producto.nombre}
-                  </h3>
+                  <div className="flex justify-between">
+                    <h3 className="text-[#b06262] font-semibold">
+                      {producto.nombre}
+                    </h3>
+                    <i
+                      className="cursor-pointer"
+                      onClick={() => {
+                        removeFromCart(producto.id);
+                        notify();
+                      }}
+                    >
+                      <Trash />
+                    </i>
+                  </div>
                   <p className="text-pink-600">{producto.marca}</p>
-                  <p className="text-indigo-800">
-                    Cantidad: {producto.quantity}
-                  </p>
+                  <div className="flex justify-center items-center">
+                    <p className="text-indigo-800 mr-2">Cantidad: </p>
+                    <div className="flex gap-x-2  ">
+                      <button
+                        disabled={producto.quantity < 2}
+                        onClick={() => {
+                          decrementQuantity(producto.id);
+                        }}
+                        className={`w-5 h-5 border text-black text-lg flex items-center justify-center ${
+                          producto.quantity < 2 ? 'opacity-40' : 'opacity-100'
+                        }`}
+                      >
+                        {'-'}
+                      </button>
+                      <p className="text-indigo-800">{producto.quantity}</p>
+                      <button
+                        className="w-5 h-5 border text-black text-lg flex items-center justify-center"
+                        onClick={() => {
+                          incrementQuantity(producto.id);
+                        }}
+                      >
+                        {'+'}
+                      </button>
+                    </div>
+                  </div>
                   <p className="text-[#634a6f]">
                     Precio: {producto.precio * producto.quantity}
                   </p>
