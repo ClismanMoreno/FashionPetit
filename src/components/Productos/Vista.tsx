@@ -16,6 +16,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-x',
+    url: 'pantalon-1',
   },
   {
     id: 2,
@@ -27,6 +28,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-y',
+    url: 'pantalon-2',
   },
   {
     id: 3,
@@ -38,6 +40,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-z',
+    url: 'pantalon-3',
   },
   {
     id: 4,
@@ -49,6 +52,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-a',
+    url: 'pantalon-4',
   },
   {
     id: 5,
@@ -60,6 +64,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-b',
+    url: 'pantalon-5',
   },
   {
     id: 6,
@@ -71,6 +76,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-c',
+    url: 'pantalon-6',
   },
   {
     id: 7,
@@ -82,6 +88,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-d',
+    url: 'pantalon-7',
   },
   {
     id: 8,
@@ -93,6 +100,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-e',
+    url: 'pantalon-8',
   },
   {
     id: 9,
@@ -104,6 +112,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-f',
+    url: 'pantalon-9',
   },
   {
     id: 10,
@@ -115,6 +124,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-g',
+    url: 'pantalon-10',
   },
   {
     id: 11,
@@ -126,6 +136,7 @@ const productos = [
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-h',
+    url: 'pantalon-11',
   },
 ];
 

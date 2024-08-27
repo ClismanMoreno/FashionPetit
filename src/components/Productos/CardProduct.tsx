@@ -12,6 +12,7 @@ interface Producto {
   largo_tiro: number;
   pierna: number;
   marca: string;
+  url: string;
 }
 
 interface ComponenteProps {
@@ -60,7 +61,7 @@ const CardProduct: React.FC<ComponenteProps> = ({
               Añadir al carrito
             </button>
             <a
-              href={`/productos/${producto.nombre.replace(' ', '-')}`}
+              href={`/productos/${producto.url}`}
               className="w-40 text-center border-2 text-cyan-100 border-cyan-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-cyan-400 hover:text-white p-2"
             >
               Ver Detalles
