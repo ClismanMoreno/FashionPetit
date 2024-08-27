@@ -97,6 +97,7 @@ const AuthPage = () => {
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={contornoCintura}
               onChange={(e) => setContornoCintura(e.target.value)}
+              required
             />
             <input
               type="text"
@@ -104,6 +105,7 @@ const AuthPage = () => {
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={contornoCadera}
               onChange={(e) => setContornoCadera(e.target.value)}
+              required
             />
             <input
               type="text"
@@ -111,6 +113,7 @@ const AuthPage = () => {
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={contornoPierna}
               onChange={(e) => setContornoPierna(e.target.value)}
+              required
             />
             <input
               type="text"
@@ -118,6 +121,7 @@ const AuthPage = () => {
               className="w-full p-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={largoTiro}
               onChange={(e) => setLargoTiro(e.target.value)}
+              required
             />
           </>
         )}

@@ -32,7 +32,7 @@ const ListProduct: React.FC<ComponenteProps> = ({
     <div className="flex flex-col justify-center items-center">
       {productos.map((producto) => (
         <div
-          className="shadow-lg p-2 w-1/2 flex justify-around"
+          className="shadow-xl p-1 w-1/2 flex justify-around border border-pink-100 rounded-lg"
           key={producto.id}
         >
           <div>
@@ -45,13 +45,13 @@ const ListProduct: React.FC<ComponenteProps> = ({
             />
           </div>
           <div className="mt-5">
-            <h2 className="text-2xl text-pink-500 text-center font-semibold">
+            <h2 className="text-2xl text-zinc-200 text-center font-semibold">
               {producto.nombre}
             </h2>
-            <p className="text-sm text-slate-500 mt-10 mb-5">
+            <p className="text-sm text-gray-200 mt-10 mb-5">
               Marca: {producto.marca}
             </p>
-            <p className="font-semibold text-pink-400">
+            <p className="font-semibold text-pink-200">
               Precio: {producto.precio}
             </p>
             <div className="flex flex-col justify-center items-center mt-10 space-y-5">
@@ -60,11 +60,11 @@ const ListProduct: React.FC<ComponenteProps> = ({
                   addToCart(producto);
                   notify();
                 }}
-                className="w-40 border-2 border-pink-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-pink-400 hover:text-white p-2"
+                className="w-40 border-2 text-pink-100 border-pink-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-pink-400 hover:text-white p-2"
               >
                 Añadir al carrito
               </button>
-              <button className="w-40 border-2 border-cyan-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-cyan-400 hover:text-white p-2">
+              <button className="w-40 border-2 text-cyan-100 border-cyan-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-cyan-400 hover:text-white p-2">
                 Ver Detalles
               </button>
             </div>

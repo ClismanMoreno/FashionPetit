@@ -56,13 +56,13 @@ const Modal: React.FC<ModalProps> = ({
         </div>
         <button
           onClick={onClose}
-          className="mt-4 w-full px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-700 focus:outline-none text-sm md:text-base"
+          className="mt-4 w-full px-4 py-2 bg-pink-300 text-white rounded-lg hover:bg-pink-700 hover:transition-all hover:delay-100 focus:outline-none text-sm md:text-base"
         >
           Cerrar
         </button>
         <button
           onClick={handleLogout}
-          className="mt-2 w-full px-4 py-2 bg-slate-400 text-white rounded-lg hover:bg-slate-700 focus:outline-none text-sm md:text-base"
+          className="mt-2 w-full px-4 py-2 bg-purple-300 text-white rounded-lg hover:bg-purple-700 hover:transition-all hover:delay-100 focus:outline-none text-sm md:text-base"
         >
           Cerrar Sesión
         </button>

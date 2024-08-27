@@ -138,12 +138,12 @@ const Vista = () => {
   const [viewCard, setViewCard] = useState(true);
   return (
     <div>
-      <h1 className="text-4xl text-center underline my-5 font-bold">
+      <h1 className="text-4xl text-pink-100 text-center underline my-5 font-bold">
         RECOMENDADOS PARA TI
       </h1>
-      <div className="flex gap-x-5 justify-center">
+      <div className="flex gap-x-5 justify-center mb-5">
         <i
-          className="border-2 p-1 flex justify-center items-center cursor-pointer"
+          className="border-2 rounded-md p-1 flex justify-center items-center cursor-pointer"
           onClick={() => {
             setViewCard(true);
           }}
@@ -151,7 +151,7 @@ const Vista = () => {
           <Grid />
         </i>
         <i
-          className="border-2 p-1 flex justify-center items-center cursor-pointer"
+          className="border-2 rounded-md p-1 flex justify-center items-center cursor-pointer"
           onClick={() => {
             setViewCard(false);
           }}

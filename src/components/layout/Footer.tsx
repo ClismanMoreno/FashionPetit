@@ -1,8 +1,6 @@
-import React from 'react';
-
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-[#483452] text-white py-8">
       <div className="container mx-auto px-4">
         {/* Información de la empresa */}
         <div className="mb-4 md:mb-0">
