@@ -137,13 +137,13 @@ const ModalCart: React.FC<ModalProps> = ({
                     </div>
                   </div>
                   <p className="text-[#634a6f]">
-                    Precio: {producto.precio * producto.quantity}
+                    Precio: S/.{producto.precio * producto.quantity}
                   </p>
                 </div>
               </div>
             ))}
           <p className="font-bold text-purple-800 text-center my-2">
-            Precio Total: {priceTotal.toFixed(2)}
+            Precio Total: S/.{priceTotal.toFixed(2)}
           </p>
           <div className="flex justify-around items-center mt-4 ">
             <a

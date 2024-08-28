@@ -17,8 +17,60 @@ interface CartItem extends Producto {
   quantity: number;
 }
 
+interface Review {
+  id: number;
+  content: string[];
+}
+const state_initial = [
+  {
+    id: 1,
+    content: [],
+  },
+  {
+    id: 2,
+    content: ['Buena prenda'],
+  },
+  {
+    id: 3,
+    content: [],
+  },
+  {
+    id: 4,
+    content: [],
+  },
+  {
+    id: 5,
+    content: [],
+  },
+  {
+    id: 6,
+    content: [],
+  },
+  {
+    id: 7,
+    content: [],
+  },
+  {
+    id: 8,
+    content: [],
+  },
+  {
+    id: 9,
+    content: [],
+  },
+  {
+    id: 10,
+    content: [],
+  },
+  {
+    id: 11,
+    content: [],
+  },
+];
 interface CartState {
   cart: CartItem[];
+  reviews: Review[];
+  addToReview: (id: number, content: string) => void;
   addToCart: (product: Producto) => void;
   removeFromCart: (productId: number) => void;
   clearCart: () => void;
@@ -31,6 +83,23 @@ export const useCartStore = create<CartState>()(
   persist(
     (set, get) => ({
       cart: [],
+      reviews: state_initial,
+      addToReview: (id, content) =>
+        set((state) => {
+          const existingReviewIndex = state.reviews.findIndex(
+            (review) => review.id === id
+          );
+
+          if (existingReviewIndex !== -1) {
+            // Si la reseña ya existe, agrega el nuevo contenido a la reseña existente
+            const updatedReviews = [...state.reviews];
+            updatedReviews[existingReviewIndex].content.push(content);
+            return { reviews: updatedReviews };
+          } else {
+            // Si la reseña no existe, crea una nueva
+            return { reviews: [...state.reviews, { id, content: [content] }] };
+          }
+        }),
       addToCart: (product) =>
         set((state) => {
           const existingProduct = state.cart.find(

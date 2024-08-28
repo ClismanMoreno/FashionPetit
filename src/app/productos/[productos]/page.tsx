@@ -152,19 +152,67 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { useCartStore } from '@/store/useCartStore';
+import dynamic from 'next/dynamic';
+import 'react-quill/dist/quill.snow.css'; // Import Quill styles
+
+const QuillEditor = dynamic(() => import('react-quill'), { ssr: false });
 
 const ProductoPage = () => {
   const path = usePathname().split('/')[2].toLocaleLowerCase();
 
   const [data, setData] = useState<Producto>();
+  const [reviewsData, setReviewsData] = useState<string[]>([]);
 
-  const { addToCart } = useCartStore();
+  const { addToCart, reviews, addToReview } = useCartStore();
   const notify = () => toast.success('¡Producto añadido al carrito!');
+  const notifyReview = () => toast.success('¡Reseña Añadida!');
 
   useEffect(() => {
     const info = productos.find((producto: Producto) => producto.url === path);
     setData(info);
   }, [path]);
+
+  useEffect(() => {
+    if (data) {
+      const productReviews = reviews.find((review) => review.id == data.id);
+      setReviewsData(productReviews ? productReviews.content : []);
+    }
+  }, [data, reviews]);
+
+  const quillModules = {
+    toolbar: [
+      [{ header: [1, 2, 3, 4, 5, 6] }],
+      ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      ['link', 'image'],
+      [{ align: [] }],
+      [{ color: [] }],
+      ['code-block'],
+      ['clean'],
+    ],
+  };
+
+  const quillFormats = [
+    'header',
+    'bold',
+    'italic',
+    'underline',
+    'strike',
+    'blockquote',
+    'list',
+    'bullet',
+    'link',
+    'image',
+    'align',
+    'color',
+    'code-block',
+  ];
+
+  const [content, setContent] = useState('');
+
+  const handleEditorChange = (newContent: string) => {
+    setContent(newContent);
+  };
 
   if (!data) {
     return (
@@ -175,7 +223,7 @@ const ProductoPage = () => {
   }
 
   return (
-    <div className="flex items-center justify-center my-5">
+    <div className="flex flex-col items-center justify-center my-5">
       <div className="flex justify-around border-2 rounded-xl w-3/4 py-5">
         <div className="w-1/2 flex justify-center">
           <Image src={data.img} alt={data.nombre} width={300} height={300} />
@@ -184,8 +232,25 @@ const ProductoPage = () => {
           <h1 className="text-purple-200 text-4xl font-semibold">
             {data?.nombre}
           </h1>
-          <p className="text-slate-200">Precio: ${data?.precio}</p>
+          <p className="text-slate-200">Precio: S/.{data?.precio}</p>
           <p className="text-gray-200">Marca: {data?.marca}</p>
+          <div>
+            <h2 className="font-semibold text-xl text-pink-200">Medidas</h2>
+            <div className="grid grid-cols-2">
+              <p className="text-pink-100">
+                &bull; Contorno de cintura: {data.cintura} cm
+              </p>
+              <p className="text-pink-100">
+                &bull; Contorno de cadera: {data.cadera} cm
+              </p>
+              <p className="text-pink-100">
+                &bull; Largo de Tiro: {data.largo_tiro} cm
+              </p>
+              <p className="text-pink-100">
+                &bull; Contorno de pierna: {data.pierna} cm
+              </p>
+            </div>
+          </div>
           <p className="text-white font-medium">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
             scelerisque vel nisl ac pellentesque. In at vulputate enim, nec
@@ -208,6 +273,43 @@ const ProductoPage = () => {
               Añadir al carrito
             </button>
           </div>
+        </div>
+      </div>
+      <div className="mt-5">
+        <h2 className="text-center font-bold text-pink-100 text-4xl underline">
+          RESEÑAS
+        </h2>
+        <div className="mt-5 flex-col space-y-5">
+          {reviewsData.map((review: string, ix: number) => (
+            <div
+              key={ix}
+              className="text-pink-100 w-full border rounded-md text-center p-2"
+              dangerouslySetInnerHTML={{
+                __html: review,
+              }}
+            />
+          ))}
+        </div>
+        <div className="h-[350px] w-full">
+          <QuillEditor
+            value={content}
+            onChange={handleEditorChange}
+            modules={quillModules}
+            formats={quillFormats}
+            className="w-full h-[100%] mt-10 bg-white pb-[42px]"
+          />
+        </div>
+        <div className="w-full flex justify-center items-center mt-5">
+          <button
+            onClick={() => {
+              addToReview(data.id, content);
+              notifyReview();
+              setContent('');
+            }}
+            className="border rounded-md p-2 bg-purple-200 text-purple-900 hover:transition-all hover:delay-100 hover:bg-purple-500"
+          >
+            Enviar Reseña
+          </button>
         </div>
       </div>
     </div>

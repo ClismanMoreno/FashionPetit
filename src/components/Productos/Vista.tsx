@@ -4,6 +4,7 @@ import CardProduct from './CardProduct';
 import ListProduct from './ListProduct';
 import Grid from '../assets/Grid';
 import List from '../assets/List';
+import { Range } from 'react-range';
 
 const productos = [
   {
@@ -141,51 +142,138 @@ const productos = [
 ];
 
 const Vista = () => {
-  const marcas = productos.map((producto) => producto.marca);
-  const precios = productos.map((producto) => producto.precio);
-  const uniqueMarcas = Array.from(new Set(marcas));
-  const uniquePrecios = Array.from(new Set(precios));
-
   const [viewCard, setViewCard] = useState(true);
+  const [selectedMarca, setSelectedMarca] = useState('');
+  const minPrice = Math.min(...productos.map((p) => p.precio));
+  const maxPrice = Math.max(...productos.map((p) => p.precio));
+  const [priceRange, setPriceRange] = useState([minPrice, maxPrice]);
+
+  const marcas = productos.map((producto) => producto.marca);
+  const uniqueMarcas = Array.from(new Set(marcas));
+
+  const handleMarcaChange = (event: any) => {
+    setSelectedMarca(event.target.value);
+  };
+
+  const handlePriceChange = (values: any) => {
+    setPriceRange(values);
+  };
+
+  const filteredProductos = productos.filter((producto) => {
+    const isMarcaMatch = selectedMarca
+      ? producto.marca === selectedMarca
+      : true;
+    const isPriceMatch =
+      producto.precio >= priceRange[0] && producto.precio <= priceRange[1];
+    return isMarcaMatch && isPriceMatch;
+  });
+
   return (
     <div>
       <h1 className="text-4xl text-pink-100 text-center underline my-5 font-bold">
         RECOMENDADOS PARA TI
       </h1>
-      <div className="flex gap-x-5 justify-center mb-5">
-        <i
-          className="border-2 rounded-md p-1 flex justify-center items-center cursor-pointer"
-          onClick={() => {
-            setViewCard(true);
-          }}
-        >
-          <Grid />
-        </i>
-        <i
-          className="border-2 rounded-md p-1 flex justify-center items-center cursor-pointer"
-          onClick={() => {
-            setViewCard(false);
-          }}
-        >
-          <List />
-        </i>
+
+      <div className="w-full flex justify-between">
+        <div className="flex justify-center gap-10 mb-5 w-full">
+          {/* Filtro por Marca */}
+          <div>
+            <label
+              htmlFor="marca"
+              className="block text-sm font-medium text-red-300"
+            >
+              Marca:
+            </label>
+            <select
+              id="marca"
+              value={selectedMarca}
+              onChange={handleMarcaChange}
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm"
+            >
+              <option value="">Todas las marcas</option>
+              {uniqueMarcas.map((marca) => (
+                <option key={marca} value={marca}>
+                  {marca}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          {/* Filtro por Precio con Slider */}
+          <div className="w-1/4">
+            <label
+              htmlFor="priceRange"
+              className="block text-sm font-medium text-red-300"
+            >
+              Rango de Precios:
+            </label>
+            <Range
+              step={0.1}
+              min={minPrice}
+              max={maxPrice}
+              values={priceRange}
+              onChange={handlePriceChange}
+              renderTrack={({ props, children }) => (
+                <div
+                  {...props}
+                  style={{
+                    height: '6px',
+                    background: 'linear-gradient(to right, #ccc, #f6abce)',
+                    borderRadius: '4px',
+                    alignSelf: 'center',
+                    margin: '1rem 0',
+                    position: 'relative',
+                  }}
+                >
+                  {children}
+                </div>
+              )}
+              renderThumb={({ props, isDragged }) => (
+                <div
+                  {...props}
+                  style={{
+                    ...props.style,
+                    height: '15px',
+                    width: '15px',
+                    backgroundColor: '#dd8bb2',
+                    borderRadius: '50%',
+                    outline: 'none',
+                    position: 'absolute',
+                    top: '-10px', // Ajuste para mover las bolitas hacia arriba
+                  }}
+                />
+              )}
+            />
+            <div className="flex justify-between text-xs">
+              <span className="text-purple-200">
+                S/.{priceRange[0].toFixed(2)}
+              </span>
+              <span className="text-purple-200">
+                S/.{priceRange[1].toFixed(2)}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className="flex gap-x-5 justify-center mb-5 w-full">
+          <i
+            className="border-2 rounded-md p-1 flex justify-center items-center cursor-pointer w-10 h-10"
+            onClick={() => setViewCard(true)}
+          >
+            <Grid />
+          </i>
+          <i
+            className="border-2 rounded-md p-1 flex justify-center items-center cursor-pointer w-10 h-10"
+            onClick={() => setViewCard(false)}
+          >
+            <List />
+          </i>
+        </div>
       </div>
+
       {viewCard ? (
-        <>
-          <CardProduct
-            productos={productos}
-            uniqueMarcas={uniqueMarcas}
-            uniquePrecios={uniquePrecios}
-          />
-        </>
+        <CardProduct productos={filteredProductos} />
       ) : (
-        <>
-          <ListProduct
-            productos={productos}
-            uniqueMarcas={uniqueMarcas}
-            uniquePrecios={uniquePrecios}
-          />
-        </>
+        <ListProduct productos={filteredProductos} />
       )}
     </div>
   );
