@@ -232,30 +232,32 @@ const ProductoPage = () => {
           <h1 className="text-purple-200 text-lg md:text-xl xl:text-4xl font-semibold text-center">
             {data?.nombre}
           </h1>
-          <p className="text-slate-200 text-center">
+          <p className="text-slate-200 text-center md:text-left">
             Precio: S/.{data?.precio}
           </p>
-          <p className="text-gray-200 text-center">Marca: {data?.marca}</p>
+          <p className="text-gray-200 text-center md:text-left">
+            Marca: {data?.marca}
+          </p>
           <div>
-            <h2 className="font-semibold text-base md:text-xl text-pink-200 text-center">
+            <h2 className="font-semibold text-base md:text-xl text-pink-200 text-center md:text-left">
               Medidas
             </h2>
-            <div className="grid grid-cols-1 space-y-2 md:space-y-0 md:grid-cols-2 mt-4 md:mt-0">
-              <p className="text-pink-100 text-xs md:text-base">
+            <div className="grid grid-cols-1 space-y-2 md:space-y-0 lg:grid-cols-2 mt-4 xl:mt-0">
+              <p className="text-pink-100 text-xs xl:text-base">
                 &bull; Contorno de cintura: {data.cintura} cm
               </p>
-              <p className="text-pink-100 text-xs md:text-base">
+              <p className="text-pink-100 text-xs xl:text-base">
                 &bull; Contorno de cadera: {data.cadera} cm
               </p>
-              <p className="text-pink-100 text-xs md:text-base">
+              <p className="text-pink-100 text-xs xl:text-base">
                 &bull; Largo de Tiro: {data.largo_tiro} cm
               </p>
-              <p className="text-pink-100 text-xs md:text-base">
+              <p className="text-pink-100 text-xs xl:text-base">
                 &bull; Contorno de pierna: {data.pierna} cm
               </p>
             </div>
           </div>
-          <p className="text-white font-medium text-sm tracking-wide md:text-base text-center">
+          <p className="text-white font-medium text-sm tracking-wide xl:text-base text-center md:text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
             scelerisque vel nisl ac pellentesque. In at vulputate enim, nec
             eleifend erat. Sed consectetur, metus at blandit tincidunt, quam
