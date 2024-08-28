@@ -52,12 +52,12 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="flex items-center p-4 bg-[#703e3e] text-white">
+    <nav className="flex items-center p-2 md:p-4 bg-[#703e3e] text-white">
       <div className="flex w-1/2">
         <div className="w-1/4">
           <Image src={'/images/logo.png'} alt="logo" height={80} width={80} />
         </div>
-        <div className="w-3/4 flex items-center justify-center gap-x-5 md:gap-x-20">
+        <div className="w-3/4 flex items-center sm:justify-center gap-x-5 md:gap-x-20">
           <a href="/productos" className="hover:underline text-sm md:text-base">
             Productos
           </a>
@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           </a>
         </div>
       </div>
-      <div className="w-1/2 flex justify-end items-center">
+      <div className="w-1/2 flex justify-end items-center mr-4">
         <div className="relative">
           <button
             onClick={() => {

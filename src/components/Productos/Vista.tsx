@@ -170,18 +170,15 @@ const Vista = () => {
 
   return (
     <div>
-      <h1 className="text-4xl text-pink-100 text-center underline my-5 font-bold">
+      <h1 className="text-lg md:text-xl lg:text-4xl text-pink-100 text-center underline my-5 font-bold">
         RECOMENDADOS PARA TI
       </h1>
 
-      <div className="w-full flex justify-between">
+      <div className="w-full flex flex-col md:flex-row justify-between">
         <div className="flex justify-center gap-10 mb-5 w-full">
           {/* Filtro por Marca */}
           <div>
-            <label
-              htmlFor="marca"
-              className="block text-sm font-medium text-red-300"
-            >
+            <label className="block text-sm font-medium text-red-300">
               Marca:
             </label>
             <select
@@ -200,11 +197,8 @@ const Vista = () => {
           </div>
 
           {/* Filtro por Precio con Slider */}
-          <div className="w-1/4">
-            <label
-              htmlFor="priceRange"
-              className="block text-sm font-medium text-red-300"
-            >
+          <div className="sm:w-1/4 md:w-1/2 lg:w-1/4">
+            <label className="block text-sm font-medium text-red-300">
               Rango de Precios:
             </label>
             <Range
@@ -231,6 +225,7 @@ const Vista = () => {
               renderThumb={({ props, isDragged }) => (
                 <div
                   {...props}
+                  key={props.key}
                   style={{
                     ...props.style,
                     height: '15px',

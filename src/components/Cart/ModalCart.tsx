@@ -61,7 +61,7 @@ const ModalCart: React.FC<ModalProps> = ({
   return (
     <>
       <div
-        className={`fixed top-0 right-0 h-full w-80 transform transition-transform duration-300 overflow-y-scroll ${
+        className={`fixed top-0 right-0 h-full w-72 md:w-80 transform transition-transform duration-300 overflow-y-scroll ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         } bg-white shadow-lg z-50`}
       >
@@ -97,7 +97,7 @@ const ModalCart: React.FC<ModalProps> = ({
                 </div>
                 <div className="flex flex-col">
                   <div className="flex justify-between">
-                    <h3 className="text-[#b06262] font-semibold">
+                    <h3 className="text-[#b06262] font-semibold text-sm md:text-base">
                       {producto.nombre}
                     </h3>
                     <i
@@ -110,9 +110,13 @@ const ModalCart: React.FC<ModalProps> = ({
                       <Trash />
                     </i>
                   </div>
-                  <p className="text-pink-600">{producto.marca}</p>
+                  <p className="text-pink-600 text-xs md:text-base">
+                    {producto.marca}
+                  </p>
                   <div className="flex justify-center items-center">
-                    <p className="text-indigo-800 mr-2">Cantidad: </p>
+                    <p className="text-indigo-800 mr-2 text-xs md:text-base">
+                      Cantidad:{' '}
+                    </p>
                     <div className="flex gap-x-2  ">
                       <button
                         disabled={producto.quantity < 2}
@@ -125,7 +129,9 @@ const ModalCart: React.FC<ModalProps> = ({
                       >
                         {'-'}
                       </button>
-                      <p className="text-indigo-800">{producto.quantity}</p>
+                      <p className="text-indigo-800 text-sm md:text-base">
+                        {producto.quantity}
+                      </p>
                       <button
                         className="w-5 h-5 border text-black text-lg flex items-center justify-center"
                         onClick={() => {
@@ -136,26 +142,26 @@ const ModalCart: React.FC<ModalProps> = ({
                       </button>
                     </div>
                   </div>
-                  <p className="text-[#634a6f]">
+                  <p className="text-[#634a6f] text-xs md:text-base">
                     Precio: S/.{producto.precio * producto.quantity}
                   </p>
                 </div>
               </div>
             ))}
-          <p className="font-bold text-purple-800 text-center my-2">
+          <p className="font-bold text-purple-800 text-center my-2 text-sm md:text-base">
             Precio Total: S/.{priceTotal.toFixed(2)}
           </p>
           <div className="flex justify-around items-center mt-4 ">
             <a
               href={message}
               target="_blank"
-              className="px-4 py-2 bg-green-500 rounded text-pink-50"
+              className="px-4 py-2 bg-green-500 rounded text-pink-50 text-sm md:text-base"
             >
               Cotizar
             </a>
             <button
               onClick={toggleModal}
-              className="px-4 py-2 bg-pink-600 rounded text-pink-50"
+              className="px-4 py-2 bg-pink-600 rounded text-pink-50 text-sm md:text-base"
             >
               Cerrar
             </button>

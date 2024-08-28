@@ -26,7 +26,7 @@ const CardProduct: React.FC<ComponenteProps> = ({ productos }) => {
     <>
       {productos.length !== 0 ? (
         <>
-          <div className="grid grid-cols-3 place-items-center gap-y-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 place-items-center justify-items-center gap-y-10">
             {productos.map((producto) => (
               <div
                 className="shadow-xl p-1 border border-pink-100 rounded-lg"

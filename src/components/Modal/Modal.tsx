@@ -28,7 +28,7 @@ const Modal: React.FC<ModalProps> = ({
 
   return (
     <div
-      className={`absolute right-0 top-8 md:top-11 w-60 bg-white rounded-lg shadow-xl transition-opacity duration-300 ${
+      className={`absolute z-50 right-0 top-8 md:top-11 w-60 bg-white rounded-lg shadow-xl transition-opacity duration-300 ${
         isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
       }`}
     >
