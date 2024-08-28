@@ -27,7 +27,7 @@ const ListProduct: React.FC<ComponenteProps> = ({ productos }) => {
     <>
       {productos.length !== 0 ? (
         <>
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center space-y-8 my-5">
             {productos.map((producto) => (
               <div
                 className="shadow-xl p-1 w-full md:w-2/3 flex justify-around border border-pink-100 rounded-lg"
