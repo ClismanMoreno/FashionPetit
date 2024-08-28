@@ -224,34 +224,38 @@ const ProductoPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center my-5">
-      <div className="flex justify-around border-2 rounded-xl w-3/4 py-5">
-        <div className="w-1/2 flex justify-center">
+      <div className="flex flex-col md:flex-row justify-around border-2 rounded-xl w-[90%] md:w-3/4 py-5">
+        <div className="w-full md:w-1/2 flex justify-center">
           <Image src={data.img} alt={data.nombre} width={300} height={300} />
         </div>
-        <div className="flex flex-col space-y-5 w-1/2">
-          <h1 className="text-purple-200 text-4xl font-semibold">
+        <div className="flex flex-col space-y-5 w-full md:w-1/2">
+          <h1 className="text-purple-200 text-lg md:text-xl xl:text-4xl font-semibold text-center">
             {data?.nombre}
           </h1>
-          <p className="text-slate-200">Precio: S/.{data?.precio}</p>
-          <p className="text-gray-200">Marca: {data?.marca}</p>
+          <p className="text-slate-200 text-center">
+            Precio: S/.{data?.precio}
+          </p>
+          <p className="text-gray-200 text-center">Marca: {data?.marca}</p>
           <div>
-            <h2 className="font-semibold text-xl text-pink-200">Medidas</h2>
-            <div className="grid grid-cols-2">
-              <p className="text-pink-100">
+            <h2 className="font-semibold text-base md:text-xl text-pink-200 text-center">
+              Medidas
+            </h2>
+            <div className="grid grid-cols-1 space-y-2 md:space-y-0 md:grid-cols-2 mt-4 md:mt-0">
+              <p className="text-pink-100 text-xs md:text-base">
                 &bull; Contorno de cintura: {data.cintura} cm
               </p>
-              <p className="text-pink-100">
+              <p className="text-pink-100 text-xs md:text-base">
                 &bull; Contorno de cadera: {data.cadera} cm
               </p>
-              <p className="text-pink-100">
+              <p className="text-pink-100 text-xs md:text-base">
                 &bull; Largo de Tiro: {data.largo_tiro} cm
               </p>
-              <p className="text-pink-100">
+              <p className="text-pink-100 text-xs md:text-base">
                 &bull; Contorno de pierna: {data.pierna} cm
               </p>
             </div>
           </div>
-          <p className="text-white font-medium">
+          <p className="text-white font-medium text-sm tracking-wide md:text-base text-center">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
             scelerisque vel nisl ac pellentesque. In at vulputate enim, nec
             eleifend erat. Sed consectetur, metus at blandit tincidunt, quam
@@ -262,13 +266,13 @@ const ProductoPage = () => {
             sed, venenatis porttitor diam. Quisque ultrices est eu purus
             consectetur convallis.
           </p>
-          <div className="mt-5">
+          <div className="mt-5 flex justify-center items-center">
             <button
               onClick={() => {
                 addToCart(data);
                 notify();
               }}
-              className="w-40 border-2 text-pink-100 border-pink-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-pink-400 hover:text-white p-2"
+              className="w-40 border-2 text-pink-100 border-pink-400 rounded-lg font-bold hover:transition-all hover:delay-100 hover:bg-pink-400 hover:text-white p-2 text-sm md:text-base"
             >
               Añadir al carrito
             </button>
@@ -276,14 +280,14 @@ const ProductoPage = () => {
         </div>
       </div>
       <div className="mt-5">
-        <h2 className="text-center font-bold text-pink-100 text-4xl underline">
+        <h2 className="text-center font-bold text-pink-100 text-lg md:text-4xl underline">
           RESEÑAS
         </h2>
         <div className="mt-5 flex-col space-y-5">
           {reviewsData.map((review: string, ix: number) => (
             <div
               key={ix}
-              className="text-pink-100 w-full border rounded-md text-center p-2"
+              className="text-pink-100 w-full border rounded-md text-center p-2 text-sm md:text-base"
               dangerouslySetInnerHTML={{
                 __html: review,
               }}
@@ -296,7 +300,7 @@ const ProductoPage = () => {
             onChange={handleEditorChange}
             modules={quillModules}
             formats={quillFormats}
-            className="w-full h-[100%] mt-10 bg-white pb-[42px]"
+            className="w-full h-[100%] mt-10 bg-white pb-[70px] md:pb-[42px]"
           />
         </div>
         <div className="w-full flex justify-center items-center mt-5">
@@ -306,7 +310,7 @@ const ProductoPage = () => {
               notifyReview();
               setContent('');
             }}
-            className="border rounded-md p-2 bg-purple-200 text-purple-900 hover:transition-all hover:delay-100 hover:bg-purple-500"
+            className="border rounded-md p-2 bg-purple-200 text-purple-900 hover:transition-all hover:delay-100 hover:bg-purple-500 text-sm md:text-base"
           >
             Enviar Reseña
           </button>

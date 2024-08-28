@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Información de la empresa */}
         <div className="mb-4 md:mb-0">
-          <h2 className="text-4xl font-semibold mb-2 text-center">
+          <h2 className="text-2xl md:text-4xl font-semibold mb-2 text-center">
             FASHION PETITE
           </h2>
           <div className="flex flex-col justify-center items-center">
@@ -15,9 +15,10 @@ const Footer: React.FC = () => {
               y moda actualizada. Nos enorgullecemos de ofrecer un excelente
               servicio al cliente y una experiencia de compra única.
             </p>
-            <p className="text-xs">
-              © {new Date().getFullYear()} Fashion Petite Todos los derechos
-              reservados.
+            <p className="text-xs text-center">
+              © {new Date().getFullYear()} Fashion Petite{' '}
+              <br className="block md:hidden" />
+              Todos los derechos reservados.
             </p>
           </div>
         </div>
