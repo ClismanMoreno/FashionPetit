@@ -12,7 +12,7 @@ const productos = [
     nombre: 'Pantalon 1',
     precio: 60.9,
     img: '/images/pantalon-1.jpg',
-    cintura: 50,
+    cintura: 80,
     cadera: 50,
     largo_tiro: 50,
     pierna: 50,
