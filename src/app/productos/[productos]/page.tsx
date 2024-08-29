@@ -5,12 +5,14 @@ const productos = [
     nombre: 'Pantalon 1',
     precio: 60.9,
     img: '/images/pantalon-1.jpg',
-    cintura: 50,
+    cintura: 80,
     cadera: 50,
     largo_tiro: 50,
     pierna: 50,
     marca: 'new-x',
     url: 'pantalon-1',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 2,
@@ -23,6 +25,8 @@ const productos = [
     pierna: 50,
     marca: 'new-y',
     url: 'pantalon-2',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 3,
@@ -35,6 +39,8 @@ const productos = [
     pierna: 50,
     marca: 'new-z',
     url: 'pantalon-3',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 4,
@@ -47,6 +53,8 @@ const productos = [
     pierna: 50,
     marca: 'new-a',
     url: 'pantalon-4',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 5,
@@ -59,6 +67,8 @@ const productos = [
     pierna: 50,
     marca: 'new-b',
     url: 'pantalon-5',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 6,
@@ -71,6 +81,8 @@ const productos = [
     pierna: 50,
     marca: 'new-c',
     url: 'pantalon-6',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 7,
@@ -83,6 +95,8 @@ const productos = [
     pierna: 50,
     marca: 'new-d',
     url: 'pantalon-7',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 8,
@@ -95,6 +109,8 @@ const productos = [
     pierna: 50,
     marca: 'new-e',
     url: 'pantalon-8',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 9,
@@ -107,6 +123,8 @@ const productos = [
     pierna: 50,
     marca: 'new-f',
     url: 'pantalon-9',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 10,
@@ -119,6 +137,8 @@ const productos = [
     pierna: 50,
     marca: 'new-g',
     url: 'pantalon-10',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
   {
     id: 11,
@@ -131,6 +151,8 @@ const productos = [
     pierna: 50,
     marca: 'new-h',
     url: 'pantalon-11',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque vel nisl ac pellentesque. In at vulputate enim, nec eleifend erat. Sed consectetur, metus at blandit tincidunt, quam rat suscipit leo, quis fringilla metus elit et eros. Etiam congue congue eros non ullamcorper. Praesent mollis erat at sapien tincidunt, eu dictum dui imperdiet.',
   },
 ];
 
@@ -145,6 +167,7 @@ interface Producto {
   pierna: number;
   marca: string;
   url: string;
+  description: string;
 }
 
 import Image from 'next/image';
@@ -258,15 +281,7 @@ const ProductoPage = () => {
             </div>
           </div>
           <p className="text-white font-medium text-sm tracking-wide xl:text-base text-center md:text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-            scelerisque vel nisl ac pellentesque. In at vulputate enim, nec
-            eleifend erat. Sed consectetur, metus at blandit tincidunt, quam
-            erat suscipit leo, quis fringilla metus elit et eros. Etiam congue
-            congue eros non ullamcorper. Praesent mollis erat at sapien
-            tincidunt, eu dictum dui imperdiet. Etiam pharetra elit nunc, vitae
-            auctor tortor varius pretium. Etiam metus magna, ultrices in risus
-            sed, venenatis porttitor diam. Quisque ultrices est eu purus
-            consectetur convallis.
+            {data.description}
           </p>
           <div className="mt-5 flex justify-center items-center">
             <button

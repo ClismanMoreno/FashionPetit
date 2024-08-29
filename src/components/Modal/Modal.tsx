@@ -57,7 +57,7 @@ const Modal: React.FC<ModalProps> = ({
           onClick={onClose}
           className="mt-4 w-full px-4 py-2 bg-pink-300 text-white rounded-lg hover:bg-pink-700 hover:transition-all hover:delay-100 focus:outline-none text-sm md:text-base"
         >
-          Cerrar
+          Ocultar
         </button>
         <button
           onClick={handleLogout}

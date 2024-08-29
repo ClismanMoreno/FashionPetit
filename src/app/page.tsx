@@ -37,7 +37,7 @@ export default function Home() {
           Bienvenido a Fashion Petite
         </h1>
         <p className="mt-4 text-xl font-semibold text-center">
-          la moda siempre contigo
+          Moda a tu medida
         </p>
       </div>
     </main>
