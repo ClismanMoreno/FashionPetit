@@ -22,7 +22,6 @@ const Modal: React.FC<ModalProps> = ({
   const router = useRouter();
 
   const handleLogout = () => {
-    localStorage.clear(); // Limpia el localStorage
     router.push('/'); // Redirige a la página de inicio
   };
 

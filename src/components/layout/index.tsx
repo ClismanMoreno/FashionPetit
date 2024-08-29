@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   return (
     <>
-      {pathname === '/' ? (
+      {pathname === '/' || pathname === '/login' || pathname === '/register' ? (
         <main>{children}</main>
       ) : (
         <>

@@ -216,7 +216,7 @@ const ProductoPage = () => {
 
   if (!data) {
     return (
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center h-[390px] sm:h-[500px]">
         <div className="loader_2" />
       </div>
     );
