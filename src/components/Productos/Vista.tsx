@@ -11,7 +11,7 @@ const productos = [
     id: 1,
     nombre: 'Pantalon 1',
     precio: 60.9,
-    img: '/images/pan1.jp2g',
+    img: '/images/pan1.jpeg',
     cintura: 80,
     cadera: 50,
     largo_tiro: 50,
