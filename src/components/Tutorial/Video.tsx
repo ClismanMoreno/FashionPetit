@@ -4,7 +4,7 @@ import { Substrack } from '../assets/Substrack';
 
 const Video: React.FC = () => {
   const [playvideo, setPlayvideo] = useState(false);
-  const videoId = 'I2mv4456l74'; // Reemplaza con el ID del video de YouTube
+  const videoId = '1_nRSbiUziA'; // Reemplaza con el ID del video de YouTube
 
   const handlePlayVideo = () => {
     setPlayvideo(true);
